@@ -1,5 +1,5 @@
 import pygame
-from objets.forme import Forme
+from src.forme import Forme
 
 class Cercle(Forme):
 

@@ -124,9 +124,9 @@ Le méthode pygame.draw.circle reçoit quatre arguments :
 Faite attention pour l'order de dessin. Que se passe-t-il si nous appelons ces commandes dans l'ordre inverse ?
 
 ## Concevoir des objets du jeu
-En tant que développeurs de jeux, il nous incombe d'identifier les objets dans notre jeu qui auront des logiques spécifiques de dessin et d'interaction avec les entrées. Après avoir identifié ces objets, nous pouvons les transformer en classes Python pour encapsuler leur logique et aussi tirer avantage des caractéristiques des langages orientés objet, comme l'héritage. Les objets de jeu (game objects), sont aussi désignés sous le terme "acteurs" (actors) dans quelques game engines. En effet, nous façonnons des acteurs qui évoluent au sein d'une scène que nous avons conçue.
+En tant que développeurs de jeux, il nous incombe d'identifier les objets dans notre jeu qui auront des logiques spécifiques de dessin et d'interaction avec les entrées. Les objets de jeu (game objects), sont aussi désignés sous le terme "acteurs" (actors) dans quelques game engines. En effet, nous façonnons des acteurs qui évoluent au sein d'une scène que nous avons conçue. Après avoir identifié ces objets, nous pouvons les transformer en classes Python pour encapsuler leur logique et aussi tirer avantage des caractéristiques des langages orientés objet, comme l'héritage. 
 
-Par exemple, créons deux classes dans un fichier appelé "objets". La première, plus générique : "Forme". La deuxième, plus spécifique : "Cercle". Dans la classe "Forme", nous implémenterons une logique de touches qui sera utilisée pour toutes les classes qui héritent de "Forme". La logique est très simple : si la barre d'espace est appuyée, nous changeons l'attribut "couleur" de rouge à vert. Sinon, il reste vert.
+Par exemple, créons deux classes dans le repertoire "src". La première, plus générique : "Forme". La deuxième, plus spécifique : "Cercle". Dans la classe "Forme", nous implémenterons une logique de touches qui sera utilisée pour toutes les classes qui héritent de "Forme". La logique est très simple : si la barre d'espace est appuyée, nous changeons l'attribut "couleur" de rouge à vert. Sinon, il reste vert.
 ```python
 import pygame
 
@@ -147,7 +147,7 @@ class Forme:
 Ensuite, créons une classe "Cercle" qui hérite de "Forme". Dans cette classe, nous effectuons également une vérification des touches du clavier. Si la touche "x" est appuyée, nous augmentons le rayon du cercle. Sinon, il reste le même.
 ```python
 import pygame
-from objets.forme import Forme
+from src.forme import Forme
 
 class Cercle(Forme):
     rayon = 100
