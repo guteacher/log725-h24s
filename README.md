@@ -1,2 +1,2 @@
-# log725-h24s
-Labos LOG725, hiver 2024
+# log725-h24
+Laboratoires LOG725, Hiver 2024
