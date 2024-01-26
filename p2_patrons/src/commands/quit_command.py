@@ -5,5 +5,5 @@ from src.commands.command import Command
 class QuitCommand(Command):
 
     def execute(self, actor):
-        print("quitter")
+        print("quit")
         sys.exit()

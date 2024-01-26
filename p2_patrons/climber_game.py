@@ -9,6 +9,8 @@ import sys
 import json
 import numpy as np
 import datetime
+from src.events.event import Event
+from src.commands.input_handler import InputHandler
 
 # CONSTANTS
 VERSION = '1.17'
@@ -39,6 +41,17 @@ class ClimberGame():
         self.shift_speed = shift_speed
         self.max_gaps = max_gaps
         self.buildno = buildno
+        self.inputs = InputHandler()
+
+    def attach(self, observer):
+        self._observers.append(observer)
+
+    def detach(self, observer):
+        self._observers.remove(observer)
+
+    def notify(self, event):
+        for obs in self._observers:
+            obs.update(event)
 
     def load_configs(self):
         game_config = {}
@@ -491,35 +504,14 @@ class ClimberGame():
                     pygame.mixer.Channel(0).set_volume(0)
                 self.music_playing = True
 
-        for event in pygame.event.get():
-            pressed_keys = pygame.key.get_pressed()
-
-            alt_f4 = (event.type == KEYDOWN and event.key == K_F4
-                      and (pressed_keys[K_LALT] or pressed_keys[K_RALT]))
-
-            if event.type == QUIT or alt_f4:
-                sys.exit()
-            if event.type == KEYDOWN and action == -1:
-                if event.key == K_RIGHT:
-                    self.player.go_right()
-                elif event.key == K_LEFT:
-                    self.player.go_left()
-                elif event.key == K_UP:
-                    self.player.jump(self.game_config['jump_sound'])
-                if event.key == K_ESCAPE:
-                    pygame.mixer.Channel(0).pause()
-                    self.music_playing = False
-                    if self.pause_menu(self.player) == 'Main Menu':
-                        return -1
-                    else:
-                        self.hide_mouse()
-                    if self.game_config['background_music']:
-                        pygame.mixer.Channel(0).unpause()
-                        self.music_playing = True
-            if event.type == KEYUP:
-                if event.key in (K_LEFT, K_a, K_RIGHT, K_d):
-                    self.player.stop(pressed_keys)
-
+        # on utilise 'self' pour accéder également aux variables qui n'appartiennent pas à Player.
+        # ainsi, 'self' représente l'instance de la classe ClimberGame, et non seulement Player.
+        self.inputs.handle(self)
+        
+        # aprés vérifier les entrées, on déclanche un evenement que répresent les changements de score
+        event = Event(self.score)
+        self.notify(event)
+        
         # react to commands from agent
         if action == 0:
             self.player.go_right()

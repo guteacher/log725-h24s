@@ -4,5 +4,5 @@ from src.commands.command import Command
 class JumpCommand(Command):
 
     def execute(self, actor):
-        print("sauter")
-        pass
+        print("jump")
+        actor.player.jump(actor.game_config['jump_sound'])
