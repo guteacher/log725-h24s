@@ -1,0 +1,16 @@
+# player.gd
+get_node('..').playing:
+
+# score_counter.gd
+display_digits(0)
+
+# main.gd
+func _ready():
+    if Input.is_action_pressed("start"):
+        _on_start_pressed()
+
+# enemy.gd
+var max_time = (-0.008*get_node('..').score)+20
+if max_time < 4:
+    max_time = 4
+$ShootTimer.wait_time = randf_range(4, max_time)

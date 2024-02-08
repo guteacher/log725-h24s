@@ -49,5 +49,9 @@ func _on_shoot_timer_timeout():
 	var b = bullet_scene.instantiate()
 	get_tree().root.add_child(b)
 	b.start(position)
-	$ShootTimer.wait_time = randf_range(4, 20)
+	var max_time = (-0.008*get_node('..').score)+20
+	if max_time < 4:
+		max_time = 4
+	print(max_time)
+	$ShootTimer.wait_time = randf_range(4, max_time)
 	$ShootTimer.start()

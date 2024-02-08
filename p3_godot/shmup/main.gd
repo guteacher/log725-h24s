@@ -36,6 +36,9 @@ func _on_enemy_died(value):
 
 	
 func _process(_delta):
+	if Input.is_action_pressed("start"):
+		_on_start_pressed()
+		
 	if get_tree().get_nodes_in_group("enemies").size() == 0 and playing:
 		spawn_enemies()
 	

@@ -40,7 +40,7 @@ func _process(delta):
 	position += input * speed * delta
 	position = position.clamp(Vector2(8, 8), screensize-Vector2(8, 8))
 
-	if Input.is_action_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and get_node("..").playing:
 		shoot()
 
 func shoot():
