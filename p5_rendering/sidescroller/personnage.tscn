@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://27ajxkuv2u56"]
+
+[ext_resource type="Script" path="res://personnage.gd" id="1_pwvin"]
+[ext_resource type="Texture2D" uid="uid://b558im4tw3ogd" path="res://assets/obstacles/icon.svg" id="2_wqeap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krebb"]
+size = Vector2(64.25, 64)
+
+[node name="Personnage" type="CharacterBody2D"]
+script = ExtResource("1_pwvin")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wqeap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(31.875, 32)
+shape = SubResource("RectangleShape2D_krebb")

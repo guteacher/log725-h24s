@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://27ajxkuv2u56"]
+
+[ext_resource type="Texture2D" uid="uid://byogjo1sxqdtr" path="res://assets/run-1.png" id="1_lc27b"]
+[ext_resource type="Script" path="res://char.gd" id="1_pwvin"]
+[ext_resource type="Texture2D" uid="uid://ig2ufdao4kll" path="res://assets/run-2.png" id="2_2aorb"]
+[ext_resource type="Texture2D" uid="uid://blk3dsg3tjind" path="res://assets/run-3.png" id="3_mh32v"]
+[ext_resource type="Texture2D" uid="uid://cegjftl1dinh6" path="res://assets/run-4.png" id="4_fy0kq"]
+[ext_resource type="Texture2D" uid="uid://6o6lhqhevc78" path="res://assets/run-5.png" id="5_mydi7"]
+[ext_resource type="Texture2D" uid="uid://bh2vt7p3mokde" path="res://assets/run-6.png" id="6_q5gwd"]
+[ext_resource type="Texture2D" uid="uid://bfrfuf8dnowd2" path="res://assets/run-7.png" id="7_f5pj4"]
+[ext_resource type="Texture2D" uid="uid://cbv342r5voa7f" path="res://assets/run-8.png" id="8_3sdkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krebb"]
+size = Vector2(49, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbbfs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lc27b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2aorb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mh32v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fy0kq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mydi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q5gwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_f5pj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3sdkp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Char" type="CharacterBody2D"]
+script = ExtResource("1_pwvin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(30, 40)
+shape = SubResource("RectangleShape2D_krebb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(35, 33)
+sprite_frames = SubResource("SpriteFrames_sbbfs")
+frame_progress = 0.105913
+speed_scale = 2.0
