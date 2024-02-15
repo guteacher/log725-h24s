@@ -1,19 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://27ajxkuv2u56"]
+[gd_scene load_steps=12 format=3 uid="uid://27ajxkuv2u56"]
 
 [ext_resource type="Script" path="res://personnage.gd" id="1_pwvin"]
-[ext_resource type="Texture2D" uid="uid://b558im4tw3ogd" path="res://assets/obstacles/icon.svg" id="2_wqeap"]
+[ext_resource type="Texture2D" uid="uid://5lhlgweiengq" path="res://assets/character/run-1.png" id="2_5qly3"]
+[ext_resource type="Texture2D" uid="uid://dngy2yrpn07jq" path="res://assets/character/run-2.png" id="3_wsj87"]
+[ext_resource type="Texture2D" uid="uid://b5xs23nmrgjq0" path="res://assets/character/run-3.png" id="4_82kp3"]
+[ext_resource type="Texture2D" uid="uid://bfdfg5hg0jfxt" path="res://assets/character/run-4.png" id="5_81xht"]
+[ext_resource type="Texture2D" uid="uid://cygb38opdcvwv" path="res://assets/character/run-5.png" id="6_keuvb"]
+[ext_resource type="Texture2D" uid="uid://b2vm7xoecx1ej" path="res://assets/character/run-6.png" id="7_64clj"]
+[ext_resource type="Texture2D" uid="uid://bbi00ybr7y0ns" path="res://assets/character/run-7.png" id="8_jb2ek"]
+[ext_resource type="Texture2D" uid="uid://bjgtwu65yp21v" path="res://assets/character/run-8.png" id="9_vx6o0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cy5ge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5qly3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wsj87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_82kp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_81xht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_keuvb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_64clj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jb2ek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vx6o0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krebb"]
-size = Vector2(64.25, 64)
+size = Vector2(36, 38)
 
 [node name="Personnage" type="CharacterBody2D"]
 script = ExtResource("1_pwvin")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(32, 32)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_wqeap")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(25, 16)
+scale = Vector2(0.771127, 0.742537)
+sprite_frames = SubResource("SpriteFrames_cy5ge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(31.875, 32)
+position = Vector2(23, 22)
 shape = SubResource("RectangleShape2D_krebb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(100, 0)

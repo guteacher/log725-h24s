@@ -1,5 +1,18 @@
-[gd_scene format=3 uid="uid://bgdexcmgc5ccx"]
+[gd_scene load_steps=3 format=3 uid="uid://bgdexcmgc5ccx"]
+
+[ext_resource type="Texture2D" uid="uid://yvud8cjexhhq" path="res://assets/obstacles/wall.png" id="1_3xutv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rm8s"]
+size = Vector2(96, 96)
 
 [node name="Mur" type="RigidBody2D"]
 mass = 0.01
 gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(48, 48)
+texture = ExtResource("1_3xutv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48, 48)
+shape = SubResource("RectangleShape2D_8rm8s")

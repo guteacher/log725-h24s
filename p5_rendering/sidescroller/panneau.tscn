@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://byemgjqgukoac"]
+
+[ext_resource type="Script" path="res://jeu.gd" id="1_r5oph"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_r5oph")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 104.0
+offset_top = 40.0
+offset_right = 272.0
+offset_bottom = 88.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 104.0
+offset_right = 296.0
+offset_bottom = 40.0
+text = "Mon interface"

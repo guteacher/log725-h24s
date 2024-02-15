@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://djvfn6uobm3uv"]
+
+[ext_resource type="PackedScene" uid="uid://bt6ooxb8kunb8" path="res://jeu.tscn" id="1_4fiw4"]
+[ext_resource type="PackedScene" uid="uid://byemgjqgukoac" path="res://panneau.tscn" id="2_gr1uh"]
+
+[node name="Viewports" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer"]
+offset_right = 632.0
+offset_bottom = 320.0
+columns = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/GridContainer/SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Jeu" parent="CanvasLayer/GridContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_4fiw4")]
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer/GridContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/GridContainer/SubViewportContainer2"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Panneau" parent="CanvasLayer/GridContainer/SubViewportContainer2/SubViewport" instance=ExtResource("2_gr1uh")]

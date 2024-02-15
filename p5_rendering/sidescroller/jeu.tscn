@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt6ooxb8kunb8"]
+
+[ext_resource type="Script" path="res://jeu.gd" id="1_382dj"]
+[ext_resource type="PackedScene" uid="uid://bgdexcmgc5ccx" path="res://mur.tscn" id="3_fm6db"]
+[ext_resource type="PackedScene" uid="uid://27ajxkuv2u56" path="res://personnage.tscn" id="3_fv7rp"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_382dj")
+
+[node name="Personnage" parent="." instance=ExtResource("3_fv7rp")]
+position = Vector2(280, 128)
+
+[node name="Mur" parent="." instance=ExtResource("3_fm6db")]
+position = Vector2(64, 64)
+
+[node name="Mur2" parent="." instance=ExtResource("3_fm6db")]
+position = Vector2(248, 0)
+
+[node name="Mur3" parent="." instance=ExtResource("3_fm6db")]
+position = Vector2(320, 200)
+
+[node name="Mur4" parent="." instance=ExtResource("3_fm6db")]
+position = Vector2(448, 48)
