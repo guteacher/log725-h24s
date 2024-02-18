@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://w8m4bqe8pdfk"]
+
+[ext_resource type="Texture2D" uid="uid://3eod0262i635" path="res://assets/bg.png" id="1_toe1c"]
+[ext_resource type="Shader" path="res://shaders/fragment.gdshader" id="1_uebde"]
+[ext_resource type="PackedScene" uid="uid://b56qtiwyoqqlf" path="res://arbre.tscn" id="2_8mdhu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1nnl"]
+render_priority = 0
+shader = ExtResource("1_uebde")
+
+[node name="Main" type="Node2D"]
+
+[node name="Ciel" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_m1nnl")
+position = Vector2(576, 326.5)
+scale = Vector2(1.8, 1.37292)
+texture = ExtResource("1_toe1c")
+
+[node name="Arbre" parent="." instance=ExtResource("2_8mdhu")]
+position = Vector2(-104, 280)
+
+[node name="Arbre2" parent="." instance=ExtResource("2_8mdhu")]
+position = Vector2(248, 280)
+
+[node name="Arbre3" parent="." instance=ExtResource("2_8mdhu")]
+position = Vector2(648, 280)
+
+[node name="Arbre4" parent="." instance=ExtResource("2_8mdhu")]
+position = Vector2(168, 472)
+scale = Vector2(0.5, 0.5)
+
+[node name="Arbre5" parent="." instance=ExtResource("2_8mdhu")]
+position = Vector2(512, 394)
+scale = Vector2(0.7, 0.7)
+
+[node name="Arbre6" parent="." instance=ExtResource("2_8mdhu")]
+position = Vector2(832, 192)
+scale = Vector2(1.2, 1.2)

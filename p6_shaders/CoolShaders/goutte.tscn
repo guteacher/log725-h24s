@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ajiyp4ta7m7"]
+
+[ext_resource type="Texture2D" uid="uid://dllk3imandarc" path="res://assets/blob.png" id="1_xa5e3"]
+
+[node name="Arbre" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160, 216)
+scale = Vector2(0.188702, 0.21275)
+texture = ExtResource("1_xa5e3")
