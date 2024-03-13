@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://buie1ffmfy5mo"]
+
+[ext_resource type="ArrayMesh" uid="uid://dpg5127tfsxxm" path="res://assets/Ball OBJ.obj" id="1_i6f2t"]
+
+[node name="Balle" type="Node3D"]
+
+[node name="SoftBody3D" type="SoftBody3D" parent="."]
+transform = Transform3D(0.537748, 0.549667, 0.639291, -0.714815, 0.699314, 0, -0.447066, -0.456975, 0.768965, 0, 0, 0)
+mesh = ExtResource("1_i6f2t")
+total_mass = 2.01
+linear_stiffness = 0.97
+pressure_coefficient = 100.0
+damping_coefficient = 0.1
+drag_coefficient = 0.1

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://8stvepq0rojq"]
+
+[ext_resource type="PackedScene" uid="uid://c7jhg65mvvxxr" path="res://sol.tscn" id="1_adqsy"]
+[ext_resource type="PackedScene" uid="uid://bsqj1l48eb4am" path="res://capsule.tscn" id="2_6hmnp"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Sol" parent="." instance=ExtResource("1_adqsy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58621, 0, 0.328743)
+
+[node name="Capsule" parent="." instance=ExtResource("2_6hmnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.64133, -1.66373)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.7192, 2.97631, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.00827275, 0.999966, 0, -0.999966, 0.00827275, 0, 7.26404, 0)
