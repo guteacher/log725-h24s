@@ -1,8 +1,8 @@
 [gd_resource type="NavigationPolygon" format=3 uid="uid://cydde5ecycyc7"]
 
 [resource]
-vertices = PackedVector2Array(850, 279, 850, 18, 1150, 18, 1150, 510, 958, 510, 958, 594, 1150, 594, 1150, 646, 18, 646, 18, 18, 462, 279, 462, 18, 656, 202)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(5, 8, 9, 10), PackedInt32Array(9, 11, 10), PackedInt32Array(5, 10, 12, 0, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(8, 656, 384, 656, 1160, 656, 1160, 584, 968, 584, 968, 520, 1160, 520, 1160, 8, 840, 8, 840, 264, 656, 192, 472, 264, 472, 8, 216, 8, 8, 8, 8, 304)])
+vertices = PackedVector2Array(850, 270, 850, 18, 1150, 18, 1150, 510, 958, 510, 840, 276, 958, 594, 1150, 594, 1150, 646, 21, 646, 18, 304, 469, 278, 18, 18, 213, 18, 360, 103, 634, 155)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(5, 4, 6, 9, 10, 11), PackedInt32Array(10, 12, 13, 14, 11), PackedInt32Array(5, 11, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(12, 657, 384, 656, 1160, 656, 1160, 584, 968, 584, 968, 520, 1160, 520, 1160, 8, 840, 8, 840, 264, 634, 143, 472, 264, 365, 94, 216, 8, 8, 8, 8, 304)])
 parsed_collision_mask = 4294967294
 source_geometry_group_name = &"navigation_polygon_source_group"
