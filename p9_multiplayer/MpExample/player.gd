@@ -1,7 +1,15 @@
 extends CharacterBody2D
  
 func _enter_tree():
-	set_multiplayer_authority(name.to_int())
+	var id = name.to_int()
+	set_multiplayer_authority(id)
+	
+	if (id == 1):
+		position.x = 100
+		position.y = 0
+	else:
+		position.x = 100
+		position.y = 100
  
 func _physics_process(delta):
 	# définir authorité sur l'objet

@@ -2,7 +2,7 @@ extends Node2D
  
 var peer = ENetMultiplayerPeer.new()
 var hostname = "localhost"
-var port = 135
+var port = 11234
 
 # la scène qu'on va répliquer
 @export var player_scene: PackedScene
