@@ -10,18 +10,16 @@ var port = 135
  
 func _on_host_pressed():
 	peer.create_server(port)
-	# ajouter un pair
-	# on va créer un nouveau joueur (le host)
-	# si un client connecte, on va créer un autre joueur (le client)
+	multiplayer.multiplayer_peer = peer
+	_add_player()
+	multiplayer.peer_connected.connect(_add_player)
 
- 
 func _add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
-	# ajouter à l'arbre (des noeuds dans la scène)
- 
+	call_deferred("add_child", player)
  
 func _on_join_pressed():
 	peer.create_client(hostname, port)
-	# ajouter un pair
+	multiplayer.multiplayer_peer = peer
  
