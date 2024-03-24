@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cov4fgqxfl0gx"]
+[gd_scene load_steps=5 format=3 uid="uid://cov4fgqxfl0gx"]
 
 [ext_resource type="PackedScene" uid="uid://di4l8agrjthfs" path="res://player.tscn" id="1_aupl8"]
 [ext_resource type="Script" path="res://main.gd" id="1_uj4n2"]
 [ext_resource type="PackedScene" uid="uid://c4nuged0iegwd" path="res://wall.tscn" id="3_150mw"]
+
+[sub_resource type="AudioStreamGenerator" id="AudioStreamGenerator_3431g"]
 
 [node name="Main" type="Node2D"]
 position = Vector2(32, 280)
@@ -34,6 +36,9 @@ spawn_path = NodePath("..")
 
 [node name="Wall" parent="." instance=ExtResource("3_150mw")]
 position = Vector2(416, 16)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamGenerator_3431g")
 
 [connection signal="pressed" from="BtnHost" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="BtnJoin" to="." method="_on_join_pressed"]

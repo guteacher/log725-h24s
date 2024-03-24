@@ -1,0 +1,137 @@
+[gd_scene load_steps=5 format=3 uid="uid://cov4fgqxfl0gx"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_uj4n2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2eml6"]
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cnvc3"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lqh5t"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D"]
+position = Vector2(32, 280)
+script = ExtResource("1_uj4n2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -32.0
+offset_top = -280.0
+offset_right = 1128.0
+offset_bottom = 368.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 480.0
+offset_top = -72.0
+offset_right = 592.0
+offset_bottom = -46.0
+text = "TÉLÉGRAPHE"
+label_settings = SubResource("LabelSettings_2eml6")
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BtnHost" type="Button" parent="MainMenu"]
+offset_left = 440.0
+offset_top = -16.0
+offset_right = 521.0
+offset_bottom = 15.0
+text = "Hébérger"
+metadata/_edit_use_anchors_ = true
+
+[node name="BtnJoin" type="Button" parent="MainMenu"]
+offset_left = 536.0
+offset_top = -16.0
+offset_right = 619.0
+offset_bottom = 15.0
+text = "Rejoindre"
+metadata/_edit_use_anchors_ = true
+
+[node name="SendText" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 384.0
+offset_top = -16.0
+offset_right = 496.0
+offset_bottom = 88.0
+
+[node name="Label" type="Label" parent="SendText"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = -8.0
+offset_right = 153.0
+offset_bottom = 15.0
+text = "Envoyer message:"
+label_settings = SubResource("LabelSettings_cnvc3")
+
+[node name="TextEdit" type="TextEdit" parent="SendText"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 160.0
+offset_top = -8.0
+offset_right = 288.0
+offset_bottom = 19.0
+
+[node name="BtnSend" type="Button" parent="SendText"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 56.0
+offset_right = 288.0
+offset_bottom = 87.0
+text = "Envoyer"
+
+[node name="LabelPreview" type="Label" parent="SendText"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 24.0
+offset_right = 152.0
+offset_bottom = 47.0
+text = "Prévisualiser la réponse:"
+label_settings = SubResource("LabelSettings_cnvc3")
+
+[node name="AnswerPreview" type="TextEdit" parent="SendText"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 24.0
+offset_right = 288.0
+offset_bottom = 48.0
+editable = false
+
+[node name="ReceiveText" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 480.0
+offset_top = -32.0
+offset_right = 608.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ReceiveText"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 116.0
+offset_bottom = 31.0
+text = "Message reçu:"
+label_settings = SubResource("LabelSettings_lqh5t")
+
+[node name="TextDisplay" type="Label" parent="ReceiveText"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 112.0
+offset_bottom = 63.0
+text = "(en attente...)"
+label_settings = SubResource("LabelSettings_lqh5t")
+
+[connection signal="pressed" from="MainMenu/BtnHost" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="MainMenu/BtnJoin" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="SendText/BtnSend" to="." method="_on_btn_send_pressed"]
