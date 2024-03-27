@@ -1,0 +1,27 @@
+extends Node2D
+ 
+var peer = ENetMultiplayerPeer.new()
+var hostname = "localhost"
+var port = 11234
+
+# la scène qu'on va répliquer
+@export var player_scene: PackedScene
+ 
+func _ready():
+	$AudioStreamPlayer.play()
+	
+func _on_host_pressed():
+	peer.create_server(port)
+	multiplayer.multiplayer_peer = peer
+	_add_player()
+	multiplayer.peer_connected.connect(_add_player)
+
+func _add_player(id = 1):
+	var player = player_scene.instantiate()
+	player.name = str(id)
+	call_deferred("add_child", player)
+ 
+func _on_join_pressed():
+	peer.create_client(hostname, port)
+	multiplayer.multiplayer_peer = peer
+ 
